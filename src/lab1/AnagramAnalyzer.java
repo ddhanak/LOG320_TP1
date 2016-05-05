@@ -21,7 +21,9 @@ public class AnagramAnalyzer {
 		return count;
 	}
 
-	
+	public boolean isAnagramTest(String string1, String string2){
+		return false;
+	}
 	public boolean isAnagram(String string1, String string2) {
 		
 		for (int i = 0; i < string1.length(); i++) {

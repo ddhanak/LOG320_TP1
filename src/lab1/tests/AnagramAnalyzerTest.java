@@ -1,10 +1,9 @@
 package lab1.tests;
 
 import static org.junit.Assert.*;
+import lab1.AnagramAnalyzer;
 
 import org.junit.Test;
-
-import lab1.AnagramAnalyzer;
 
 /**
  * Convention de nommage des cas de test : 
