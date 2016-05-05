@@ -40,7 +40,7 @@ public class Main {
 			long elapsedTime = TimeUnit.NANOSECONDS.toSeconds((endTime - startTime));
 			
 			System.out.println("Il y a un total de "+ totalAnagramCount +" anagrammes.");
-			System.out.println("Temps d'exÃ©cution : " + elapsedTime + " s.");
+			System.out.println("Temps d'exécution : " + elapsedTime + " s.");
 			
 		} catch (IOException e) {
 			System.out.println("An error occured while reading the words file.");
