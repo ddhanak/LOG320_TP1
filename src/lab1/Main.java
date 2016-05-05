@@ -23,7 +23,7 @@ public class Main {
 			int totalAnagramCount = 0;
 			List<WordAnagrams> wordAnagrams = new ArrayList<WordAnagrams>();		
 			
-			long startTime = System.nanoTime();
+			double startTime = System.nanoTime();
 			
 			for (String word : words) {
 				int count = analyzer.getAnagramCountFromDictionary(word, dictionary);
@@ -31,16 +31,16 @@ public class Main {
 				wordAnagrams.add(new WordAnagrams(word, count));			
 			}
 	
-			long endTime = System.nanoTime();
+			double endTime = System.nanoTime();
 			
 			for (WordAnagrams wa : wordAnagrams) {
 				System.out.println("Il y a "+ wa.Count +" anagrammes du mot "+ wa.WordName);
 			}
 			
-			long elapsedTime = TimeUnit.NANOSECONDS.toSeconds((endTime - startTime));
+			double elapsedTime = (endTime - startTime) / 1000000000;
 			
 			System.out.println("Il y a un total de "+ totalAnagramCount +" anagrammes.");
-			System.out.println("Temps d'exécution : " + elapsedTime + " s.");
+			System.out.println("Temps d'exécution : " + elapsedTime + " secondes.");
 			
 		} catch (IOException e) {
 			System.out.println("An error occured while reading the words file.");
