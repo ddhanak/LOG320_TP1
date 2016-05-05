@@ -35,6 +35,8 @@ public class AnagramAnalyzer {
 		return true;
 	}
 
+
+	// http://stackoverflow.com/questions/13692221/anagram-algorithm-in-java
 	// O(n log n)
 	public static boolean isAnagramSorted(String string1, String string2) {
 		if (string1.length() != string2.length()) {
@@ -51,6 +53,7 @@ public class AnagramAnalyzer {
 		return newString1.equals(newString2);
 	}
 
+	// http://stackoverflow.com/questions/13692221/anagram-algorithm-in-java
 	// O(n)
 	public static boolean isAnagramHash(String string1, String string2) {
 		Map<Character, Integer> map = new HashMap<>();
