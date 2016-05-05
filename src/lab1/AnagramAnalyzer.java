@@ -1,7 +1,23 @@
 package lab1;
 
+import java.util.List;
+
 public class AnagramAnalyzer {
 
+	public int getAnagramCountFromDictionary(String word, List<String> dict) {
+		int count = 0;
+		
+		for (String dictWord : dict) {
+			boolean isAnagram = isAnagram(word, dictWord);
+			
+			if (isAnagram)
+				++count;
+		}
+		
+		return count;
+	}
+
+	
 	public boolean isAnagram(String string1, String string2) {
 		
 		for (int i = 0; i < string1.length(); i++) {
