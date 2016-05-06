@@ -34,7 +34,7 @@ public class Main {
 			double endTime = System.nanoTime();
 			
 			for (WordAnagrams wa : wordAnagrams) {
-				System.out.println("Il y a "+ wa.Count +" anagrammes du mot "+ wa.WordName);
+				System.out.println("Il y a "+ wa.Count() +" anagrammes du mot "+ wa.WordName());
 			}
 			
 			double elapsedTime = (endTime - startTime) / 1000000000;

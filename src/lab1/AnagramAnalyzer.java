@@ -1,7 +1,7 @@
 package lab1;
 
+import java.util.Comparator;
 import java.util.List;
-
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class AnagramAnalyzer {
 		int count = 0;
 		
 		for (String dictWord : dict) {
-			boolean isAnagram = isAnagram(word, dictWord);
+			boolean isAnagram = isAnagramTest(word, dictWord);
 			
 			if (isAnagram)
 				++count;
@@ -21,9 +21,49 @@ public class AnagramAnalyzer {
 		return count;
 	}
 
+	/**
+	 * Pas le meilleur Algo
+	 * @param string1
+	 * @param string2
+	 * @return
+	 */
 	public boolean isAnagramTest(String string1, String string2){
-		return false;
+		if (string1.length() != string2.length()) {
+			return false;
+		}
+		string1 = string1.toLowerCase();
+		string2 = string2.toLowerCase();
+		char[] c1 = string1.toCharArray();
+		char[] c2 = string2.toCharArray();
+		Map<Character,Integer> myMap = new HashMap<Character, Integer>();
+		for(char element : c1){
+			int count = 1;
+			if(myMap.containsKey(element)){
+				count = myMap.get(element)+1;
+			}
+			myMap.put(element, count);
+		}
+		for(char element : c2){
+			int count = -1;
+			if(myMap.containsKey(element)){
+				count = myMap.get(element)-1;
+			}
+			myMap.put(element, count);
+		}
+		
+		for (char element : myMap.keySet()) {
+		    if (myMap.get(element) != 0) {
+		        return false;
+		    }
+		}
+
+		return true;
+	
 	}
+	
+	
+	
+	//O(n2)
 	public boolean isAnagram(String string1, String string2) {
 		
 		for (int i = 0; i < string1.length(); i++) {
@@ -73,6 +113,9 @@ public class AnagramAnalyzer {
 	// http://stackoverflow.com/questions/13692221/anagram-algorithm-in-java
 	// O(n)
 	public static boolean isAnagramHash(String string1, String string2) {
+		if (string1.length() != string2.length()) {
+			return false;
+		}
 		Map<Character, Integer> map = new HashMap<>();
 		for(char c : string1.toLowerCase().toCharArray()) {
 			Integer frequency = map.get(c);
