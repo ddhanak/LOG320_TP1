@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import lab1.AnagramAnalyzer;
+import lab1.Main;
 
 /**
  * Convention de nommage des cas de test : 
@@ -19,7 +20,7 @@ public class AnagramAnalyzerTest {
 	public void isAnagram_Anagram_ReturnsTrue() {
 		AnagramAnalyzer analyzer = getAnalyzer();
 		
-		boolean isAnagram = analyzer.isAnagram("allo", "olal");
+		boolean isAnagram = Main.isAnagram("allo".toCharArray(), "olal".toCharArray());
 		
 		assertEquals(true, isAnagram);
 	}
@@ -28,7 +29,7 @@ public class AnagramAnalyzerTest {
 	public void isAnagram_NotAnagram_ReturnsFalse() {
 		AnagramAnalyzer analyzer = getAnalyzer();
 		
-		boolean isAnagram = analyzer.isAnagram("hello", "allo23");
+		boolean isAnagram = Main.isAnagram("hello".toCharArray(), "allo23".toCharArray());
 		
 		assertEquals(false, isAnagram);
 	}

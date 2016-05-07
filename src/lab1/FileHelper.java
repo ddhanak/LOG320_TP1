@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FileHelper {
@@ -20,9 +21,9 @@ public class FileHelper {
 	 * @return
 	 * @throws IOException
 	 */
-	public static List<String> getWordsFromFile(String path) throws IOException {
+	public static List<char[]> getWordsFromFile(String path) throws IOException {
 		
-		List<String> words = new ArrayList<String>();
+		List<char[]> words = new ArrayList<char[]>();
 		
 		String line;
 		try (
@@ -30,8 +31,8 @@ public class FileHelper {
 		    InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
 		    BufferedReader br = new BufferedReader(isr);
 		) {
-		    while ((line = br.readLine()) != null) {
-		        words.add(line.replaceAll("\\s+", ""));
+		    while ((line = br.readLine()) != null) {		    	
+		        words.add(line.toCharArray());
 		    }
 		}
 		
