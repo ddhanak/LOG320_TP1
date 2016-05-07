@@ -77,7 +77,7 @@ public class Main {
 	}
 	
 	/**
-	 * Je l'ai laissé là pour l'analyse du rapport
+	 * Un algorithme O(N) pour le rapport
 	 * @param string1
 	 * @param string2
 	 * @return
@@ -91,8 +91,7 @@ public class Main {
 	
 	/**
 	 * Se sert du thérorème fondamental en mathématique, idée trouvée ici : http://stackoverflow.com/questions/15045640/how-to-check-if-two-words-are-anagrams  
-	 * @param string
-	 * @return
+	 * ("By the fundamental theorem of arithmetic, 2 strings are anagrams if and only if their products are the same")
 	 */
 	public static long getStringAnagramsUniqueNumericValue(char[] string) {
 		long value = 1;
