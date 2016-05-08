@@ -1,16 +1,11 @@
-package lab1.tests;
+package lab1.test;
 
 import static org.junit.Assert.*;
 import lab1.AnagramAnalyzer;
 
+import lab1.Main;
 import org.junit.Test;
 
-<<<<<<< HEAD
-=======
-import lab1.AnagramAnalyzer;
-import lab1.Main;
-
->>>>>>> b580b59250e46f72905284ce1b9b8c78b58cc440
 /**
  * Convention de nommage des cas de test : 
  * 			méthodeTestée_Scénario_RésultatAttendu
@@ -24,7 +19,7 @@ public class AnagramAnalyzerTest {
 	public void isAnagram_Anagram_ReturnsTrue() {
 		AnagramAnalyzer analyzer = getAnalyzer();
 		
-		boolean isAnagram = Main.isAnagram("allo".toCharArray(), "olal".toCharArray());
+		boolean isAnagram = analyzer.isAnagram("allo".toCharArray(), "olal".toCharArray());
 		
 		assertEquals(true, isAnagram);
 	}
@@ -33,7 +28,7 @@ public class AnagramAnalyzerTest {
 	public void isAnagram_NotAnagram_ReturnsFalse() {
 		AnagramAnalyzer analyzer = getAnalyzer();
 		
-		boolean isAnagram = Main.isAnagram("hello".toCharArray(), "allo23".toCharArray());
+		boolean isAnagram = analyzer.isAnagram("hello".toCharArray(), "allo23".toCharArray());
 		
 		assertEquals(false, isAnagram);
 	}
