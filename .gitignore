@@ -1,7 +1,8 @@
-.settings/
-bin/
 *.classpath
+*.iml
+.settings/
+.idea
 .project
-out/production/TP1/lab1/AnagramAnalyzer.class
-out/production/TP1/lab1/AnagramFinder.class
-.idea/workspace.xml
+out/
+bin/
+
