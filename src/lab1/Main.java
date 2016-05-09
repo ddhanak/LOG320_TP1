@@ -1,13 +1,11 @@
 package lab1;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -23,29 +21,25 @@ public class Main {
 			System.out.println("Processing...");	
 			
 			double startTime = System.nanoTime();
-			
-			Map<Long, Integer> dictionaryAnagrams = mapDictionaryAnagrams(dictionary); //N mots * C char
-			
-			List<WordAnagrams> wordAnagrams = new ArrayList<WordAnagrams>();
-			long totalAnagramsCount = 0;
-			
-			for (char[] word : words) {												// M mots * C char
-				WordAnagrams wa = new WordAnagrams();
-				wa.WordName = new String(word);
-				
-				long key = getStringAnagramsUniqueNumericValue(word);
-				Integer anagramsCount = dictionaryAnagrams.get(key);
-				
-				wa.AnagramsCount = (anagramsCount != null) ? anagramsCount : 0;
-		
-				wordAnagrams.add(wa);
-				totalAnagramsCount += wa.AnagramsCount;
-			}
 
+			long totalAnagramsCount = 0;
+
+			Map<Long, WordAnagrams> wordsAnagrams = mapWordsAnagrams(words);	// N mots * K char
+			
+			for (char[] word : dictionary) {									// M mots * C char				
+				long key = getStringAnagramsUniqueNumericValue(word);
+				WordAnagrams wordAnagrams = wordsAnagrams.get(key);
+				
+				if (wordAnagrams != null) {
+					wordAnagrams.AnagramsCount += 1;
+					totalAnagramsCount += 1;
+				}
+			}		
+			
 			double endTime = System.nanoTime();
 			
-			for (WordAnagrams wa : wordAnagrams) {
-				System.out.println("Il y a "+ wa.AnagramsCount +" anagrammes du mot "+ wa.WordName);
+			for (WordAnagrams wa : wordsAnagrams.values()) {
+				System.out.println("Il y a "+ wa.AnagramsCount +" anagrammes du mot "+ new String(wa.WordName));
 			}
 			
 			double elapsedTime = (endTime - startTime) / 1000000000;
@@ -58,19 +52,12 @@ public class Main {
 		}
 	}
 	
-	public static Map<Long, Integer> mapDictionaryAnagrams(List<char[]> dictionary) {
-		Map<Long, Integer> anagrams = new HashMap<Long, Integer>();
+	public static Map<Long, WordAnagrams> mapWordsAnagrams(List<char[]> words) {
+		Map<Long, WordAnagrams> anagrams = new HashMap<Long, WordAnagrams>();
 		
-		for (char[] word : dictionary) {
-			long key = getStringAnagramsUniqueNumericValue(word);
-			Integer count = anagrams.get(key);
-			
-			if (count == null) {
-				anagrams.put(key, 1);
-			}
-			else {
-				anagrams.put(key, count + 1);
-			}
+		for (char[] word : words) {
+			long key = getStringAnagramsUniqueNumericValue(word);			
+			anagrams.put(key, new WordAnagrams(word, 0));
 		}
 		
 		return anagrams;

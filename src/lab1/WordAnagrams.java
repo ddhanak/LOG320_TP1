@@ -2,6 +2,10 @@ package lab1;
 
 public class WordAnagrams {
 
-	public String WordName;
+	public WordAnagrams(char[] wordName, int anagramsCount) {
+		WordName = wordName;
+		AnagramsCount = anagramsCount;
+	}
+	public char[] WordName;
 	public int AnagramsCount;
 }
