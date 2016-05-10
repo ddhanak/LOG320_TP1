@@ -15,7 +15,7 @@ import lab1.Main;
  *
  */
 public class AnagramAnalyzerTest {
-
+/*
 	@Test
 	public void isAnagram_Anagram_ReturnsTrue() {
 		AnagramAnalyzer analyzer = getAnalyzer();
@@ -33,7 +33,7 @@ public class AnagramAnalyzerTest {
 		
 		assertEquals(false, isAnagram);
 	}
-	
+	*/
 	
 	
 	
