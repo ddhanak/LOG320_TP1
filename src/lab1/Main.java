@@ -1,6 +1,5 @@
 package lab1;
 
-import lab1.model.WordAnagrams;
 import lab1.util.FileHelper;
 
 import java.io.IOException;
@@ -12,29 +11,28 @@ public class Main {
 	static final String DICT_FILE_PATH = "dict5.txt";
 
     public static Map<String, Integer> findAnagrams(List<String> words, List<String> dictionary) {
-        Map<String, List<String>> listOfAnagrams = new HashMap<>();
+        Map<String, Integer> listOfAnagrams = new HashMap<>();
 
         for(String s : dictionary) {
-            // changer pour utiliser une liste de char[]
-            // comme ca le traitement est plus rapide (pas besoin de faire un sort)
-
-            char[] c = s.toUpperCase().toCharArray();
+            char[] c = s.toCharArray();
             Arrays.sort(c);
-            List<String> l = listOfAnagrams.get(String.valueOf(c));
-            if(l == null) {
-                l = new ArrayList<>();
+            String cString = String.valueOf(c);
+            Integer anagramsCount = listOfAnagrams.get(String.valueOf(cString));
+            if(anagramsCount != null) {
+            	listOfAnagrams.put(cString, anagramsCount + 1);
             }
-            l.add(s);
-            listOfAnagrams.put(String.valueOf(c), l);
+            else {
+            	listOfAnagrams.put(cString, new Integer(1));
+            }  
         }
 
         Map<String, Integer> anagrams = new HashMap<>();
         for(String e : words) {
-            char[] c = e.toUpperCase().toCharArray();
+            char[] c = e.toCharArray();
             Arrays.sort(c);
             if(listOfAnagrams.containsKey(String.valueOf(c)))
             {
-                int count = listOfAnagrams.get(String.valueOf(c)).size();
+                int count = listOfAnagrams.get(String.valueOf(c));
                 anagrams.put(e, count);
             }
         }
