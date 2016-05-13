@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FileHelper {
 
@@ -18,9 +17,9 @@ public class FileHelper {
      * @return
      * @throws IOException
      */
-    public static List<char[]> getWordsFromFile(String path) throws IOException {
+    public static List<String> getWordsFromFile(String path) throws IOException {
 
-        List<char[]> words = new ArrayList<>();
+        List<String> words = new ArrayList<>();
 
         String line;
 
@@ -30,7 +29,8 @@ public class FileHelper {
                 BufferedReader br = new BufferedReader(isr);
         ) {
             while ((line = br.readLine()) != null) {
-                words.add(line.toCharArray());
+                line = line.trim().replaceAll("\\s", "");
+                words.add(line);
             }
         }
 
