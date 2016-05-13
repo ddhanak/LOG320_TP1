@@ -30,7 +30,7 @@ public class FileHelper {
                 BufferedReader br = new BufferedReader(isr);
         ) {
             while ((line = br.readLine()) != null) {
-                words.add(line.toCharArray());
+                words.add(line.replaceAll("\\s+","").toCharArray());
             }
         }
 

@@ -33,7 +33,21 @@ public class AnagramAnalyzerTest {
 		assertEquals(false, isAnagram);
 	}
 	
+	@Test
+	public void betterThanFastest_Anagram_ReturnsTrue() {
+		AnagramAnalyzer analyzer = getAnalyzer();
+		
+		int isAnagram = analyzer.betterThanFastest("allo".toCharArray(), "olal".toCharArray());
+		
+		assertEquals(1, isAnagram);
+	}
 	
+	@Test
+	public void betterThanFastest_Anagram_ReturnsTrue_NotAnagram_ReturnsFalse() {
+		AnagramAnalyzer analyzer = getAnalyzer();
+		int isAnagram = analyzer.betterThanFastest("hello".toCharArray(), "allo23".toCharArray());
+		assertEquals(0, isAnagram);
+	}
 	
 	
 	public AnagramAnalyzer getAnalyzer() {
