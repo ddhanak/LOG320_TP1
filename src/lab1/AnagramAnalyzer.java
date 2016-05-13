@@ -71,6 +71,23 @@ public class AnagramAnalyzer {
     	
     	return 1;
     }
+	
+	
+	
+	public int betterThanbetterThanFastest(char[] string1, char[] string2) {    	
+		if (string1.length != string2.length) {
+            return 0;
+        }
+	
+    	long v = getStringUniqueNumericValueTest(string1);
+    	long v2 = getStringUniqueNumericValueTest(string2);
+
+    	if(v != v2){
+    		return 0;
+    	}
+    	
+    	return 1;
+    }
 
     /**
      * Log O(N) algorithm - should be the fastest way to find anagrams
@@ -275,6 +292,56 @@ public class AnagramAnalyzer {
                 case '9': value *= 149; break;
                 case '0': value *= 151; break;
                 default: break;
+            }
+        }
+
+        return value;
+    }
+    
+    
+    public static long getStringUniqueNumericValueTest(char[] string) {
+        long value = 1;
+
+        for (char c : string) {
+            switch (c) {
+                // Les lettres sont classées en ordre de popularité selon https://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais
+                case 'e': value += 1; break;
+                case 's': value += 2; break;
+                case 'a': value += 3; break;
+                case 'i': value += 4; break;
+                case 't': value += 5; break;
+                case 'n': value += 6; break;
+                case 'r': value += 7; break;
+                case 'u': value += 8; break;
+                case 'l': value += 9; break;
+                case 'o': value += 10; break;
+                case 'd': value += 11; break;
+                case 'c': value += 12; break;
+                case 'p': value += 13; break;
+                case 'm': value += 13; break;
+                case 'v': value += 14; break;
+                case 'q': value += 15; break;
+                case 'f': value += 16; break;
+                case 'b': value += 17; break;
+                case 'g': value += 18; break;
+                case 'h': value += 19; break;
+                case 'j': value += 20; break;
+                case 'x': value += 21; break;
+                case 'y': value += 22; break;
+                case 'z': value += 23; break;
+                case 'w': value += 24; break;
+                case 'k': value += 25; break;
+                case '1': value += 26; break;
+                case '2': value += 27; break;
+                case '3': value += 28; break;
+                case '4': value += 29; break;
+                case '5': value += 30; break;
+                case '6': value += 31; break;
+                case '7': value += 32; break;
+                case '8': value += 33; break;
+                case '9': value += 34; break;
+                case '0': value += 35; break;
+                default: return -1;
             }
         }
 

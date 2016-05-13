@@ -32,7 +32,7 @@ public class Main {
                 wa.WordName = new String(word);
                 
                 for (char[] dictWord : dictionary) {	
-                	wa.AnagramsCount += analyzer.betterThanFastest(word, dictWord);
+                	wa.AnagramsCount += analyzer.betterThanbetterThanFastest(word, dictWord);
                 }
                 
                 wordAnagrams.add(wa);
