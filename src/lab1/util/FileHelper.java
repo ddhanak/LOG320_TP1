@@ -12,8 +12,9 @@ import java.util.List;
 public class FileHelper {
 
     /**
-     * Code de lecture dans le fichier pris sur http://stackoverflow.com/questions/7413830/java-read-line-from-file
-     *
+     * CODE EMPRUNTÉ :
+     * Les lignes suivantes sont basées sur le code source disponible à l'adresse suivante:
+     * http://stackoverflow.com/questions/7413830/java-read-line-from-file
      * @param path
      * @return
      * @throws IOException
@@ -36,4 +37,6 @@ public class FileHelper {
 
         return words;
     }
+
+    /* FIN DU CODE EMPRUNTÉ */
 }

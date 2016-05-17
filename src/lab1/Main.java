@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
 
 	static final String WORDS_FILE_PATH = "words.txt";
-	static final String DICT_FILE_PATH = "dict4.txt";
+	static final String DICT_FILE_PATH = "dict.txt";
 
     public static void main(String[] args) {
 
@@ -32,7 +32,7 @@ public class Main {
                 wa.WordName = new String(word);
                 
                 for (char[] dictWord : dictionary) {	
-                	wa.AnagramsCount += analyzer.betterThanbetterThanFastest(word, dictWord);
+                	wa.AnagramsCount += analyzer.estUnAnagrammeRapide(word, dictWord);
                 }
                 
                 wordAnagrams.add(wa);
