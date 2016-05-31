@@ -55,7 +55,7 @@ public class AnagramAnalyzer {
             return 0;
         }
 		
-		int[] lettersCount = new int[36];
+		int[] lettersCount = new int[37];
     	
     	for (int i = 0; i != string1.length; i++) {
     		int index = getCharIndex(string1[i]);
